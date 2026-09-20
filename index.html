@@ -28,7 +28,7 @@
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;background:var(--page);color:var(--ink);font-family:var(--font-body);}
-  body{padding-bottom:60px;-webkit-font-smoothing:antialiased;cursor:var(--gold-cursor);}
+  body{padding-bottom:60px;-webkit-font-smoothing:antialiased;}
   ::selection{background:var(--gold-soft);}
 
   header.top{position:sticky;top:0;z-index:50;background:var(--navy-deep);color:#fff;padding:20px 28px 18px;border-bottom:3px solid var(--gold);}
@@ -121,10 +121,16 @@
   .flow-line{font-family:var(--font-body);font-size:12.5px;color:var(--ink-soft);line-height:1.8;background:linear-gradient(135deg,#0A1F44,#15305F);color:#E4E9F2;border-radius:10px;padding:14px 18px;margin-top:10px;}
   .flow-line b{color:var(--gold);}
   .grade-pill{display:inline-block;padding:2px 9px;border-radius:20px;font-family:var(--font-body);font-weight:700;font-size:11px;min-width:14px;text-align:center;}
-  .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;color:var(--ink);box-shadow:0 2px 10px rgba(10,31,68,.05);}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;color:var(--ink);box-shadow:0 2px 10px rgba(10,31,68,.05);position:relative;}
   .panel h2{font-family:var(--font-display);font-size:17px;font-weight:600;margin:0 0 3px;color:var(--navy-deep);padding-left:12px;border-left:4px solid var(--gold);}
   .bhi-count-badge{font-family:var(--font-body); font-size:12px; font-weight:600; color:var(--muted);}
   .panel .panel-sub{font-family:var(--font-body);font-size:11.5px;color:var(--muted);margin:6px 0 14px 16px;}
+  .hover-hint{
+    position:absolute; top:18px; right:20px;
+    font-family:var(--font-body); font-size:10.5px; font-style:italic; color:#fff;
+    background:var(--navy-deep); border:1px solid var(--navy-deep); border-radius:8px;
+    padding:6px 12px; margin:0; max-width:200px; text-align:center; line-height:1.4;
+  }
 
   /* ---- Matrix ---- */
   .matrix-scroll{overflow-x:auto; overflow-y:visible;}
@@ -234,6 +240,7 @@
   <div class="panel">
     <h2>Branch Health Matrix</h2>
     <p class="panel-sub"><b>Rows:</b> Profitability &nbsp;&middot;&nbsp; <b>Columns:</b> Transactions &nbsp;&middot;&nbsp; <b>Dot color:</b> Operational Efficiency</p>
+    <p class="hover-hint">Hover over any branch name for a deeper dive.</p>
     <div class="matrix-scroll">
       <div class="matrix-grid" id="matrixGrid"></div>
     </div>
@@ -862,3 +869,4 @@ document.querySelectorAll("#viewTabs button").forEach(btn => {
 </script>
 </body>
 </html>
+
